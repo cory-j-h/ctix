@@ -48,6 +48,11 @@ export default function createSingleBuilder<
       type: 'boolean',
       default: false,
     })
+    .option('useFileExt', {
+      alias: 'u',
+      describe: 'use custom file extension in export statement path',
+      type: 'string'
+    })
     .option('ignoreFile', {
       alias: 'g',
       describe:

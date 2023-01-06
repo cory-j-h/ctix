@@ -64,6 +64,10 @@ export default function initBuilder<
       describe: 'keep file extension in export statement path',
       type: 'boolean',
       default: false,
+    })
+    .option('useFileExt', {
+      describe: 'use custom file extension in export statement path',
+      type: 'string'
     });
 
   return args;

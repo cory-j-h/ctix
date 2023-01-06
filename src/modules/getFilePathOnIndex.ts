@@ -64,6 +64,19 @@ function getRelativePath(filePath: string, option: TCreateOrSingleOption, relati
     return relativeDirPathWithDot;
   }
 
+  if (relativePath != null && option.useFileExt) {
+    const relativeDirPath = replaceSepToPosix(
+      path.posix.relative(relativePath, path.dirname(filePath)),
+    );
+    const exportPath = isIndex ? '' : `${basename}${option.useFileExt}`;
+    const relativeDirPathWithDot = appendDotDirPrefix(
+      path.posix.join(relativeDirPath, exportPath),
+      path.posix.sep,
+    );
+
+    return relativeDirPathWithDot;
+  }
+
   if (relativePath != null) {
     const relativeDirPath = replaceSepToPosix(
       path.posix.relative(relativePath, path.dirname(filePath)),
@@ -79,6 +92,12 @@ function getRelativePath(filePath: string, option: TCreateOrSingleOption, relati
 
   if (option.keepFileExt || declareExtensions.includes(extname)) {
     const exportPath = isIndex ? '' : `${basename}${extname}`;
+    const basenameWithDot = appendDotDirPrefix(exportPath, path.posix.sep);
+    return basenameWithDot;
+  }
+
+  if (option.useFileExt || declareExtensions.includes(extname)) {
+    const exportPath = isIndex ? '' : `${basename}${option.useFileExt}`;
     const basenameWithDot = appendDotDirPrefix(exportPath, path.posix.sep);
     return basenameWithDot;
   }

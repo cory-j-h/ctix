@@ -66,7 +66,7 @@ export async function createWritor(option: TCreateOptionWithDirInfo, isMessageDi
     const exportInfos = totalExportInfos.filter(
       (exportInfo) =>
         fileNameDuplicationValidateResult.filePaths.includes(exportInfo.resolvedFilePath) ===
-          false &&
+        false &&
         exportDuplicationValidateResult.filePaths.includes(exportInfo.resolvedFilePath) === false,
     );
 
@@ -327,6 +327,13 @@ export async function createInitFile(option: TTInitOptionWithDirInfo, isMessageD
       modifiedInitialConfig = applyEdits(
         modifiedInitialConfig,
         modify(modifiedInitialConfig, ['keepFileExt'], option.keepFileExt, options),
+      );
+    }
+
+    if (option.useFileExt != null) {
+      modifiedInitialConfig = applyEdits(
+        modifiedInitialConfig,
+        modify(modifiedInitialConfig, ['useFileExt'], option.useFileExt, options),
       );
     }
 

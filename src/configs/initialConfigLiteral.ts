@@ -23,6 +23,8 @@ const initialConfigLiteral = `{
   "overwrite": false,
   // keep file extension in export statement path
   "keepFileExt": false,
+  // use custom file extension in export statement path
+  "useFileExt": undefined,
 
   
   // only create command configuration

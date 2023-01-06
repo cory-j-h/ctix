@@ -111,6 +111,7 @@ It is not recommended to use `index.ts` file to re-map paths or shorten the path
 | --useComment     | -m    | true        | create, single         | ctix comment add on first line of created export file(default index.ts) file, that remark created from ctix                    |
 | --quote          | -q    | '           | create, single         | change quote character at export syntax                                                                                        |
 | --keepFileExt    | -k    | '           | create, single         | keep file extension on export statement path literal                                                                           |
+| --useFileExt     | -u    | '           | create, single         | use custom file extension on export statement path literal                                                                     |
 | --overwrite      | -w    | '           | create, single         | overwrite each index.ts file                                                                                                   |
 | --ignoreFile     | -g    |             | create, single         | ignore file name. You can pass ignore, config file at ctix and use it like profile                                             |
 | --noBackup       |       | false       | create, single         | not create backup file even if set overwrite option enable                                                                     |

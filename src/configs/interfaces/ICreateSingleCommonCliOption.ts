@@ -74,6 +74,7 @@ export default interface ICreateSingleCommonCliOption {
    * @default false
    */
   k?: boolean;
+
   /**
    * keep file extension in export statement path
    *
@@ -84,6 +85,17 @@ export default interface ICreateSingleCommonCliOption {
    * @default false
    */
   keepFileExt?: boolean;
+
+  /**
+   * use custom file extension in export statement path
+   *
+   * if this option set true that see below
+   * export * from './test.myfileext'
+   *
+   * @mode create, single
+   * @default false
+   */
+  useFileExt?: string;
 
   /**
    * ignore file name. You can pass ignore, config file at ctix and use it like profile

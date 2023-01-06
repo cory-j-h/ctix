@@ -25,7 +25,9 @@ export default function validateFileNameDuplication(
   const duplicate = exportInfos.filter((exportInfo) => {
     const baseName = option.keepFileExt
       ? path.basename(exportInfo.resolvedFilePath)
-      : path.basename(exportInfo.resolvedFilePath, getExtname(exportInfo.resolvedFilePath));
+      : (option.useFileExt
+        ? path.basename(exportInfo.resolvedFilePath, option.useFileExt)
+        : path.basename(exportInfo.resolvedFilePath, getExtname(exportInfo.resolvedFilePath)));
 
     return baseName === indexFileName;
   });
